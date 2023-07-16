@@ -4,10 +4,10 @@ WORKDIR /var/www/html/
 RUN apt-get update -y
 RUN apt-get install -y zip nginx
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-RUN zip master.zip /root/2048/Job1/
-RUN gzip master.zip
+RUN zip Job1.zip /root/2048/Job1/
+RUN gzip Job1.zip
 ADD master.gzip /var/www/html/
-RUN unzip master.zip
-RUN rm  master.zip 
+RUN unzip Job1.zip
+RUN rm  Job1.zip 
 EXPOSE 80
 CMD ["/usr/sbin/nginx","-c","/etc/nginx/nginx.conf"]
